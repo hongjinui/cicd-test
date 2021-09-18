@@ -11,7 +11,8 @@ public class Controller {
         System.out.println("RUN!");
         model.addAttribute("name", "홍진의");
         model.addAttribute("age", "29세");
-
+        model.addAttribute("name2", "홍준기");
+        model.addAttribute("age2", "30세");
         return "index";
     }
 }

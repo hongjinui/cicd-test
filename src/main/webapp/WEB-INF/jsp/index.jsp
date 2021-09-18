@@ -10,10 +10,7 @@
 <p>Hello World</p>
 <p>${name}, ${age}</p>
 <p>Hello World</p>
-<p>${name}, ${age}</p>
-<p>Hello World</p>
-<p>${name}, ${age}</p>
-<p>Hello World</p>
-<p>${name}, ${age}</p>
+<p>${name2}, ${age2}</p>
+
 </body>
 </html>
