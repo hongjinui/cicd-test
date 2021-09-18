@@ -9,6 +9,7 @@
 <body>
 <p>Hello World</p>
 <p>${name}, ${age}</p>
-
+<p>Hello World</p>
+<p>${name}, ${age}</p>
 </body>
 </html>
