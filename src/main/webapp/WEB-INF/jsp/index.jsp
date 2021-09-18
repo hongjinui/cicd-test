@@ -8,10 +8,7 @@
 </head>
 <body>
 <p>Hello World!!@@##</p>
-<p>${name}</p>
-<p>ASDF</p>
-<p>ASDF</p>
-<p>ASDF</p>
-<p>ASDF</p>
+<p>${name}, ${age}</p>
+
 </body>
 </html>

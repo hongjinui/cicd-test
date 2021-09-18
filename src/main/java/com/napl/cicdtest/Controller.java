@@ -10,6 +10,7 @@ public class Controller {
     public String hello(Model model){
         System.out.println("RUN!");
         model.addAttribute("name", "홍진의");
+        model.addAttribute("age", "29세");
 
         return "index";
     }
