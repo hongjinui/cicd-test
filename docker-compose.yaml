@@ -4,8 +4,8 @@ version: '3.1'
 services:
   jenkins:
     build:
-      context: ./
-      dockerfile: dockerfiles/Dockerfile_jenkins2
+      context: /dockerfiles
+      dockerfile: ./Dockerfile_jenkins2
     restart: always
     ports:
       - "8088:8080"
@@ -21,7 +21,7 @@ services:
     container_name: mongoRs1
     image: "mongo"
     build:
-      context: ./
+      context: /dockerfiles
       dockerfile: ./Dockerfile_mongo_rs
     restart: always
     ports:
