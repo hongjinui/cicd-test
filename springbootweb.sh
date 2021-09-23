@@ -4,10 +4,10 @@ echo springbootweb shell start!
 
 echo chmod +x gradlew...
 
-chmod +x ../gradlew
+chmod +x ./gradlew
 
 echo gradlew clean && build...
-../gradlew clean build
+./gradlew clean build
 
 # 도커 명령어를 로그 파일에 저장
 docker ps -a | grep springbootweb > docker_ps_log
@@ -39,11 +39,11 @@ else
 fi
 
 #도커 이미지 빌드
-echo 도커 이미지 빌드...
-docker build -f dockerfiles/Dockerfile_spring -t springbootweb ./
+echo ==================docker springbootweb image is building=========================
+docker build -f ./Dockerfile_spring -t springbootweb ./
 
 #도커 컨테이너 실행
-echo 도커 컨테이너 실행...
+echo ==================docker springbootweb container is starting=========================
 docker run -itd -p 8888:8080 --name springbootweb springbootweb:latest
 
 echo springbootweb shell end!!
