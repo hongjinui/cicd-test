@@ -20,6 +20,9 @@ services:
   mongoRs1:
     container_name: mongoRs1
     image: "mongo"
+    build:
+      context: ./
+      dockerfile: ./Dockerfile_mongo_rs
     restart: always
     ports:
       - "6001:27017"
@@ -33,7 +36,8 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: db
-    networks:
+    command: mongod --replSet replicaSet
+      networks:
       - mongo-networks
 
   mongoRs2:
@@ -52,7 +56,8 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: db
-    networks:
+    command: mongod --replSet replicaSet
+      networks:
       - mongo-networks
 
   mongoRs3:
@@ -71,6 +76,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: db
+    command: mongod --replSet replicaSet
     networks:
       - mongo-networks
 
