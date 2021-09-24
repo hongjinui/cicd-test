@@ -4,10 +4,10 @@ echo springbootweb shell start!
 
 echo ==================chmod +x gradlew...=========================
 
-chmod +x ../gradlew
+chmod +x ./gradlew
 
 echo ==================gradlew clean and build...=========================
-../gradlew clean build
+./gradlew clean build
 
 # 도커 명령어를 로그 파일에 저장
 docker ps -a | grep springbootweb > docker_ps_log
