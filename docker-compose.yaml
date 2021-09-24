@@ -5,7 +5,7 @@ services:
   jenkins:
     build:
       context: ./
-      dockerfile: ./Dockerfile_jenkins2
+      dockerfile: dockerfiles/Dockerfile_jenkins2
     restart: always
     ports:
       - "8088:8080"
@@ -22,7 +22,7 @@ services:
     # image: "mongo"
     build:
       context: ./
-      dockerfile: ./Dockerfile_mongo_rs
+      dockerfile: dockerfiles/Dockerfile_mongo_rs
     restart: always
     ports:
       - "6001:27017"
