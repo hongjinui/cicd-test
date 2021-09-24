@@ -2,11 +2,11 @@
 
 echo springbootweb shell start!
 
-echo chmod +x gradlew...
+echo ==================chmod +x gradlew...=========================
 
 chmod +x ./gradlew
 
-echo gradlew clean && build...
+echo ==================gradlew clean and build...=========================
 ./gradlew clean build
 
 # 도커 명령어를 로그 파일에 저장

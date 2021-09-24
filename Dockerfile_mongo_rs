@@ -1,8 +1,12 @@
 FROM mongo
+
 WORKDIR /usr/src
 RUN mkdir configs
 WORKDIR /usr/src/configs
+
 COPY /setup/replicaSet.js /usr/src/configs/replicaSet.js
 COPY /setup/setup.sh /usr/src/configs/setup.sh
+
 RUN chmod +x setup.sh
-CMD ["./setup.sh"]
+
+CMD ["/usr/src/configs/setup.sh"]

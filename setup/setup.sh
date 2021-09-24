@@ -2,5 +2,5 @@
 
 sleep 3 | echo Sleeping
 
-mongo mongodb://mongoRs1:27017 replicaSet.js
+mongo mongodb://mongors1:27017 /usr/src/configs/replicaSet.js
 
