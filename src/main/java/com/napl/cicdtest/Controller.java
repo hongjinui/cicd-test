@@ -26,8 +26,11 @@ public class Controller {
 
         try{
             InetAddress ip = InetAddress.getLocalHost(); // => 컴퓨터명/IP 출력
-            String serverIp = ip.getHostAddress(); // => IP 출력
-            model.addAttribute("serverIp",serverIp);
+            String hostAddress = ip.getHostAddress(); // => IP 출력
+            String hostName = ip.getCanonicalHostName();
+
+            model.addAttribute("hostAddress",hostAddress);
+            model.addAttribute("hostName",hostName);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
