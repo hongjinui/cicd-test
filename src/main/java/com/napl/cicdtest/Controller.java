@@ -3,6 +3,7 @@ package com.napl.cicdtest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -22,6 +23,14 @@ public class Controller {
         String time = simpleDateFormat.format(date);
 
         model.addAttribute("time",time);
+
+        try{
+            InetAddress ip = InetAddress.getLocalHost(); // => 컴퓨터명/IP 출력
+            String serverIp = ip.getHostAddress(); // => IP 출력
+            model.addAttribute("serverIp",serverIp);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
 
         return "index";
     }
