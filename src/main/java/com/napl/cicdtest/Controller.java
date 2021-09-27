@@ -58,13 +58,11 @@ public class Controller {
 
             map.put("name",name);
             map.put("age",age);
-            System.out.println(map.get(name));
-            System.out.println(map.get(age));
             dataList.add(map);
         }
         model.addAttribute("dataList",dataList);
 
-
+        logger.info("Controller-hello3");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date = new Date();
         String time = simpleDateFormat.format(date);
