@@ -32,7 +32,7 @@ public class Controller {
 //        model.addAttribute("age", "29세");
 //        model.addAttribute("name2", "홍준기");
 //        model.addAttribute("age2", "30세");
-        List<Map<String,String>> dataList = new ArrayList<>();
+        /*List<Map<String,String>> dataList = new ArrayList<>();
         MongoCollection<Document> collection = null;
 
         collection = mongoTemplate.getDb().getCollection(DBConstant.COLLECTION_NAME);
@@ -51,7 +51,7 @@ public class Controller {
             dataList.add(map);
         }
 
-        model.addAttribute("dataList",dataList);
+        model.addAttribute("dataList",dataList);*/
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
