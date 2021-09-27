@@ -11,5 +11,13 @@
     <p>현재 시각 : ${time}</p>
     <p>호스트 이름 : ${hostName}</p>
     <p>호스트 어드레드 : ${hostAddress}</p>
+
+
+    <c:forEach var="data" items="${dataList}">
+
+        <span><c:out value="${data.name}" /><c:out value="${data.age}" /> </span>
+        <br>
+    </c:forEach>
+
     </body>
 </html>
