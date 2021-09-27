@@ -37,7 +37,7 @@ then
 		docker run -itd -p 888$var:8080 --name springbootweb_$var springbootweb:latest
 		echo ==================springbootweb_$var container is starting=========================
 
-		sleep 5
+		sleep 10
 	done
 else
 	echo ==================springbootweb container is not exist=========================
