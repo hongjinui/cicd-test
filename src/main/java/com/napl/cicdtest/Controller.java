@@ -58,7 +58,8 @@ public class Controller {
 
             map.put("name",name);
             map.put("age",age);
-
+            System.out.println(map.get(name));
+            System.out.println(map.get(age));
             dataList.add(map);
         }
         model.addAttribute("dataList",dataList);
