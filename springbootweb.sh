@@ -27,14 +27,14 @@ then
 	# docker rm -f springbootweb
 	# echo ==================springbootweb container is removed=========================
 	
-	for var in {0..2}
+	for var in {0..1}
 	do	
 		echo ==================springbootweb_$var container is running=========================
 		# 스프링부트 컨테이너 5초개 1개씩 제거 후 재실행 - 무중단 배포하기 위해
 		docker rm -f springbootweb_$var
 		echo ==================springbootweb_$var container is removed=========================
 
-		docker run -itd -p 888$var:8080 --name springbootweb_$var -net cicd-test_mongo-networks springbootweb:latest
+		docker run -itd -p 888$var:8080 --name springbootweb_$var -net mongo-networks springbootweb:latest
 		echo ==================springbootweb_$var container is starting=========================
 
 		sleep 10
@@ -44,7 +44,7 @@ else
 
 	docker run -itd -p 8880:8080 --name springbootweb_0 springbootweb:latest
 	docker run -itd -p 8881:8080 --name springbootweb_1 springbootweb:latest
-	docker run -itd -p 8882:8080 --name springbootweb_2 springbootweb:latest
+	# docker run -itd -p 8882:8080 --name springbootweb_2 springbootweb:latest
 
 fi
 
