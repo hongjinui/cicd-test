@@ -45,7 +45,9 @@ public class Controller {
         MongoCollection<Document> collection = null;
 
         collection = mongoTemplate.getDb().getCollection(DBConstant.COLLECTION_NAME);
+        logger.info("Controller-hello1");
         FindIterable<Document> documents =  collection.find();
+        logger.info("Controller-hello2");
         MongoCursor<Document> cursor = documents.cursor();
 
         while (cursor.hasNext()){
