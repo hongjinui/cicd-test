@@ -23,20 +23,16 @@ echo $(ls -ls | grep docker_ps_log)
 # -s : 파일의 크기가 0보다 크면 참
 if [ -s docker_ps_log ]
 then
-	# echo ==================springbootweb container is running=========================
-	# docker rm -f springbootweb
-	# echo ==================springbootweb container is removed=========================
-	
+
+	# for var in {0..2} - 서버 과부하로 컨테이너 3개에서 2개 실행
 	for var in {0..1}
 	do	
 		echo ==================springbootweb_$var container is running=========================
-		# 스프링부트 컨테이너 5초개 1개씩 제거 후 재실행 - 무중단 배포하기 위해
+		# 스프링부트 컨테이너 10초에 1개씩 제거 후 재실행 - 무중단 배포하기 위해
 		docker rm -f springbootweb_$var
 		echo ==================springbootweb_$var container is removed=========================
 
 		docker run -itd -p 888$var:8080 --name springbootweb_$var springbootweb:latest
-
-		docker network connect cicd-test_mongo-networks springbootweb_$var
 		echo ==================springbootweb_$var container is starting=========================
 
 		sleep 10
@@ -46,28 +42,10 @@ else
 
 	docker run -itd -p 8880:8080 --name springbootweb_0 springbootweb:latest
 	docker run -itd -p 8881:8080 --name springbootweb_1 springbootweb:latest
-	# docker run -itd -p 8882:8080 --name springbootweb_2 springbootweb:latest
-
-	docker network connect cicd-test_mongo-networks springbootweb_0
-	docker network connect cicd-test_mongo-networks springbootweb_1
+	# docker run -itd -p 8882:8080 --name springbootweb_2 springbootweb:latest - 서버 과부하로 컨테이너 3개에서 2개 실행
 
 fi
 
-
-# echo $(ls -ls | grep docker_images_log)
-
-# if [ -s docker_images_log ]
-# then
-# 	echo ==================springbootweb image is existing=========================
-# 	docker rmi springbootweb:latest
-# 	echo ==================springbootweb image is removed=========================
-# else
-# 	echo ==================springbootweb image is not exist=========================
-# fi
-
-
-#도커 컨테이너 실행
-# echo ==================docker springbootweb container is starting=========================
-# docker run -itd -p 8888:8080 --name springbootweb springbootweb:latest
+rm -f docker_ps_log
 
 echo springbootweb shell end!!
