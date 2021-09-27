@@ -34,7 +34,7 @@ then
 		docker rm -f springbootweb_$var
 		echo ==================springbootweb_$var container is removed=========================
 
-		docker run -itd -p 888$var:8080 --name springbootweb_$var springbootweb:latest
+		docker run -itd -p 888$var:8080 --name springbootweb_$var -net cicd-test_mongo-networks springbootweb:latest
 		echo ==================springbootweb_$var container is starting=========================
 
 		sleep 10
