@@ -48,6 +48,9 @@ else
 	docker run -itd -p 8881:8080 --name springbootweb_1 springbootweb:latest
 	# docker run -itd -p 8882:8080 --name springbootweb_2 springbootweb:latest
 
+	docker network connect cicd-test_mongo-networks springbootweb_0
+	docker network connect cicd-test_mongo-networks springbootweb_1
+
 fi
 
 
