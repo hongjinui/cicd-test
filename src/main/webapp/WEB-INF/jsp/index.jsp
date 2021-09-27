@@ -14,5 +14,6 @@
 <p>${time}</p>
 <p>호스트 이름 : ${hostName}</p>
 <p>호스트 어드레드 : ${hostAddress}</p>
+<p>테스트추가입니다.</p>
 </body>
 </html>
