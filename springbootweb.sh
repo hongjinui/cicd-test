@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo springbootweb shell start!
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@ springbootweb shell start @@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 echo ==================chmod +x gradlew...=========================
 
@@ -24,20 +24,16 @@ echo $(ls -ls | grep docker_ps_log)
 if [ -s docker_ps_log ]
 then
 
-	# for var in {0..2} 
+	# for var in {0..2} - 서버 과부하로 스프링 컨테이너 3개에서 2개만 실행
 	for var in {0..1} 
 	do	
 		echo ==================springbootweb_$var container is running=========================
 		# 스프링부트 컨테이너 10초에 1개씩 제거 후 재실행 - 무중단 배포하기 위해
-		docker rm -f springbootweb_$var
+		docker rm -f springbootweb_$var	
 		echo ==================springbootweb_$var container is removed=========================
 
-		# docker run -itd -p 888$var:8080 --name springbootweb_$var springbootweb:latest
-		# docker run -itd -p 888$var:8080 --name springbootweb_$var --link mongors1:mongors1 --net cicd-test_mongo-networks springbootweb:latest
 		docker run -itd -p 888$var:8080 --name springbootweb_$var --net cicd-test_mongo-networks springbootweb:latest
 		echo ==================springbootweb_$var container is starting=========================
-
-		# docker network connect cicd-test_mongo-networks springbootweb_$var
 
 		sleep 10
 	done
@@ -46,10 +42,10 @@ else
 
 	docker run -itd -p 8880:8080 --name springbootweb_0 --net cicd-test_mongo-networks springbootweb:latest
 	docker run -itd -p 8881:8080 --name springbootweb_1 --net cicd-test_mongo-networks springbootweb:latest
-	# docker run -itd -p 8882:8080 --name springbootweb_2 springbootweb:latest
+	# docker run -itd -p 8882:8080 --name springbootweb_2 --net cicd-test_mongo-networks springbootweb:latest
 
 fi
 
 rm -f docker_ps_log
 
-echo springbootweb shell end!!
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@ springbootweb shell end... @@@@@@@@@@@@@@@@@@@@@@@@@@@

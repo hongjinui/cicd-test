@@ -8,7 +8,6 @@ class CicdTestApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println("#######################@@@@@@@@@@@@@@@@@@##################");
 	}
 
 }

@@ -12,10 +12,8 @@
     <p>호스트 이름 : ${hostName}</p>
     <p>호스트 어드레드 : ${hostAddress}</p>
 
-
     <c:forEach var="data" items="${dataList}">
         <p>이름 : ${data.name}, 나이 : ${data.age}</p>
-        <br>
     </c:forEach>
 
     </body>
