@@ -33,7 +33,8 @@ then
 		echo ==================springbootweb_$var container is removed=========================
 
 		# docker run -itd -p 888$var:8080 --name springbootweb_$var springbootweb:latest
-		docker run -itd -p 888$var:8080 --name springbootweb_$var --link mongors1:mongors1 --net cicd-test_mongo-networks springbootweb:latest
+		# docker run -itd -p 888$var:8080 --name springbootweb_$var --link mongors1:mongors1 --net cicd-test_mongo-networks springbootweb:latest
+		docker run -itd -p 888$var:8080 --name springbootweb_$var --net cicd-test_mongo-networks springbootweb:latest
 		echo ==================springbootweb_$var container is starting=========================
 
 		# docker network connect cicd-test_mongo-networks springbootweb_$var
@@ -43,8 +44,8 @@ then
 else
 	echo ==================springbootweb container is not exist=========================
 
-	docker run -itd -p 8880:8080 --name springbootweb_0 springbootweb:latest
-	docker run -itd -p 8881:8080 --name springbootweb_1 springbootweb:latest
+	docker run -itd -p 8880:8080 --name springbootweb_0 --net cicd-test_mongo-networks springbootweb:latest
+	docker run -itd -p 8881:8080 --name springbootweb_1 --net cicd-test_mongo-networks springbootweb:latest
 	# docker run -itd -p 8882:8080 --name springbootweb_2 springbootweb:latest
 
 fi
