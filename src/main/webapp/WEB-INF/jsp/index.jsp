@@ -14,8 +14,7 @@
 
 
     <c:forEach var="data" items="${dataList}">
-
-        <span><c:out value="${data.name}" /><c:out value="${data.age}" /> </span>
+        <p>이름 : ${data.name}, 나이 : ${data.age}</p>
         <br>
     </c:forEach>
 
