@@ -1,3 +1,4 @@
+// replica set 설정
 config = {
   _id : "replicaSet",
   members: [

@@ -3,7 +3,7 @@
 echo @@@@@@@@@@@@@@@@@@@@@@@@@@@ springbootweb shell start @@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 echo ==================chmod +x gradlew...=========================
-
+# 실행 권한 허가
 chmod +x ./gradlew
 
 echo ==================gradlew clean and build...=========================
@@ -15,10 +15,8 @@ docker build -f dockerfiles/Dockerfile_spring -t springbootweb ./
 
 # 도커 명령어를 로그 파일에 저장
 docker ps -a | grep springbootweb > docker_ps_log
-# docker images -a | grep springbootweb > docker_images_log
 
 echo $(ls -ls | grep docker_ps_log)
-
 
 # -s : 파일의 크기가 0보다 크면 참
 if [ -s docker_ps_log ]
@@ -46,6 +44,7 @@ else
 
 fi
 
+# 로그 파일 삭제
 rm -f docker_ps_log
 
 echo @@@@@@@@@@@@@@@@@@@@@@@@@@@ springbootweb shell end... @@@@@@@@@@@@@@@@@@@@@@@@@@@

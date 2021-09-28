@@ -45,6 +45,7 @@ public class Controller {
         MongoCollection<Document> collection = null;
 
         collection = mongoTemplate.getDb().getCollection(DBConstant.COLLECTION_NAME);
+        // 몽고디비 cicdtest-testcol find
         FindIterable<Document> documents =  collection.find();
         MongoCursor<Document> cursor = documents.cursor();
 
@@ -60,13 +61,14 @@ public class Controller {
         }
         model.addAttribute("dataList",dataList);
 
-        logger.info("Controller-hello3");
+        // 현재 시각
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date = new Date();
         String time = simpleDateFormat.format(date);
 
         model.addAttribute("time",time);
 
+        // 호스트명, 호스트 IP
         try{
             InetAddress ip = InetAddress.getLocalHost(); // => 컴퓨터명/IP 출력
             String hostAddress = ip.getHostAddress(); // => IP 출력
